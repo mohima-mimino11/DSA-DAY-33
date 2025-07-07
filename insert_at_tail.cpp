@@ -9,7 +9,7 @@ class Node{
     this->next = NULL;
   }
 };
-void insertAtTail(Node* &head, int val){
+void insertAtTail(Node* &head, int val){  // Time complexity - O(N^2)
   Node* newNode = new Node(val);
   Node* tmp = head;
   while(tmp->next != NULL){

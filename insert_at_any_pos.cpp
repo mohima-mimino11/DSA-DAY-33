@@ -9,10 +9,15 @@ class Node{
     this->next = NULL;
   }
 };
-void insertAtHead(Node* &head, int val){ // Time complexity - O(1)
+void insertAtAnyPostion(Node* &head,int idx, int val){ // Time complexity - O(N)
   Node* newNode = new Node(val);
-  newNode->next = head;
-  head = newNode;
+  Node* tmp = head;
+  for(int i = 0; i < idx-1; i++){
+    tmp = tmp->next;
+  }
+  // tmp is at idx-1 now
+  newNode->next = tmp->next;
+  tmp->next = newNode;
 }
 void printLinkedList(Node* head){
   Node* tmp = head;
@@ -29,11 +34,9 @@ int main(){
   head->next = a;
   a->next = b;
 
-  insertAtHead(head, 100);
-  insertAtHead(head, 300);
-  insertAtHead(head, 400);
-  insertAtHead(head, 500);
-
+  insertAtAnyPostion(head,2, 100);
+  insertAtAnyPostion(head,2, 200);
+  
   printLinkedList(head);
 
   return 0;

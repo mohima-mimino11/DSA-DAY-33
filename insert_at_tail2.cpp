@@ -9,7 +9,8 @@ class Node{
     this->next = NULL;
   }
 };
-void insertAtTail(Node* &head, int val){
+void insertAtTail(Node* &head, int val){ 
+  // Time complexity - O(N) have to be optimized cause when we want to insert n values at tail the compexity becomes O(N^2)
   Node* newNode = new Node(val);
   // edge case of linkedlist being empty
   if(head == NULL){

@@ -9,10 +9,16 @@ class Node{
     this->next = NULL;
   }
 };
-void insertAtHead(Node* &head, int val){ // Time complexity - O(1)
+void insertAtTail(Node* &head, Node* &tail, int val){ 
+  // Time complexity - O(1) 
   Node* newNode = new Node(val);
-  newNode->next = head;
-  head = newNode;
+  // edge case of linkedlist being empty
+  if(head == NULL){
+    head = newNode;
+    return;
+  }
+  tail->next = newNode;
+  tail = newNode;
 }
 void printLinkedList(Node* head){
   Node* tmp = head;
@@ -24,17 +30,15 @@ void printLinkedList(Node* head){
 int main(){
   Node* head = new Node(10);
   Node* a = new Node(20);
-  Node* b = new Node(30);
+  Node* tail = new Node(30);
 
   head->next = a;
-  a->next = b;
+  a->next = tail;
 
-  insertAtHead(head, 100);
-  insertAtHead(head, 300);
-  insertAtHead(head, 400);
-  insertAtHead(head, 500);
-
+  insertAtTail(head,tail, 70);
+  insertAtTail(head,tail, 90);
+  insertAtTail(head,tail, 100);
   printLinkedList(head);
-
+  cout << "Tail " << tail->val << endl; 
   return 0;
 }
