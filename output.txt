@@ -5,3 +5,4 @@
 90
 100
 Tail 100
+list size is 6
