@@ -28,6 +28,12 @@ void printLinkedList(Node* head){
     tmp = tmp->next;
   }
 }
+
+void deleteAtHead(Node* &head){ // Time-> O(1)
+  Node* deleteNode = head;
+  head = head->next;
+  delete deleteNode;
+}
 int main(){
   Node* head = NULL;
   Node* tail = NULL;
@@ -40,6 +46,8 @@ int main(){
     insertAtTail(head, tail, val);
 
   }
+  deleteAtHead(head);
+  deleteAtHead(head);
 
   printLinkedList(head);
   // cout << "Tail " << tail->val << endl; 

@@ -28,6 +28,14 @@ void printLinkedList(Node* head){
     tmp = tmp->next;
   }
 }
+
+void printLinkedListReverse(Node* tmp){
+  if(tmp == NULL){
+    return;
+  }
+  printLinkedListReverse(tmp->next);
+  cout << tmp->val << endl;
+}
 int main(){
   Node* head = NULL;
   Node* tail = NULL;
@@ -41,7 +49,10 @@ int main(){
 
   }
 
+  cout << "normal print:" << endl;
   printLinkedList(head);
+  cout << "reverse print:" << endl;
+  printLinkedListReverse(head);
   // cout << "Tail " << tail->val << endl; 
   return 0;
 }

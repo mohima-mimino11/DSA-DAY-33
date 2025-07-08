@@ -28,6 +28,17 @@ void printLinkedList(Node* head){
     tmp = tmp->next;
   }
 }
+
+void deleteAtTail(Node* &head, int idx, Node* &tail){ // Time complexity: O(N)
+  Node* tmp = head;
+  for(int i = 1; i < idx; i++){ 
+    tmp = tmp->next;
+  }
+  Node* deleteNode = tmp->next;
+  tmp->next = tmp->next->next;
+  delete deleteNode;
+  tail = tmp;
+}
 int main(){
   Node* head = NULL;
   Node* tail = NULL;
@@ -40,8 +51,10 @@ int main(){
     insertAtTail(head, tail, val);
 
   }
+  deleteAtTail(head,4, tail);
+  // deleteAtTail(head);
 
   printLinkedList(head);
-  // cout << "Tail " << tail->val << endl; 
+  cout << "Tail " << tail->val << endl; 
   return 0;
 }
