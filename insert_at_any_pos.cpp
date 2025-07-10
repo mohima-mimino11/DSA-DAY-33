@@ -14,6 +14,9 @@ void insertAtAnyPostion(Node* &head,int idx, int val){ // Time complexity - O(N)
   Node* tmp = head;
   for(int i = 0; i < idx-1; i++){
     tmp = tmp->next;
+    if(tmp == NULL){
+      return;
+    }
   }
   // tmp is at idx-1 now
   newNode->next = tmp->next;
@@ -35,7 +38,7 @@ int main(){
   a->next = b;
 
   insertAtAnyPostion(head,2, 100);
-  insertAtAnyPostion(head,2, 200);
+  insertAtAnyPostion(head,10, 200);
   
   printLinkedList(head);
 
